@@ -1,7 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const schema = require('./schema');
 dotenv.config();
 
 const secret = process.env.SECRET;
@@ -17,7 +17,18 @@ const load = (req, res) => {
                 res.status(403).send('Invalid authToken');
                 return;
             }
-            res.send('Connected');
+            if (!schema.SaveData.findOne({UUID: decoded.UUID})) {
+                res.status(200).send(
+                    schema.SaveData.create({UUID: decoded.UUID,
+                        name: decoded.name,
+                        compounds: [],
+                        achievements: [],
+                        lastPlayed: new Date(),
+                        totalCompounds: []}));
+                return;
+            }
+            res.send(schema.SaveData.findOne({UUID: decoded.UUID}));
+            return;
         }
     );
 };
