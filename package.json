@@ -1,0 +1,19 @@
+{
+  "name": "mychemicalsandbox",
+  "version": "1.0.0",
+  "description": "A game based on Little Alchemy but for Chemistry",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lucjohn/myChemicalSandbox.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucjohn/myChemicalSandbox/issues"
+  },
+  "homepage": "https://github.com/lucjohn/myChemicalSandbox#readme"
+}
